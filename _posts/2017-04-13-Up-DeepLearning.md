@@ -401,4 +401,53 @@ batch的大小决定了梯度值，以及权重更新的频率。一个epoch指�
 
 [什么是early stopping？](ftp://ftp.sas.com/pub/neural/FAQ3.html#A_stop)
 
+### 4、用融合方法提升效果
+
+你可以将多个模型的预测结果融合。 继模型调优之后，这是另一个大的提升领域。 
+
+事实上，往往将几个效果还可以的模型的预测结果融合，取得的效果要比多个精细调优的模型分别预测的效果好。 我们来看一下模型融合的三个主要方向：
+
+- 模型融合
+- 视角融合
+- stacking
+
+#### 1） 模型融合
+
+不必挑选出一个模型，而是将它们集成。 如果你训练了多个深度学习模型，每一个的效果都不错，则将它们的预测结果取均值。 
+
+模型的差异越大，效果越好。举个例子，你可以使用差异很大的网络拓扑和技巧。 如果每个模型都独立且有效，那么集成后的结果效果更稳定。 相反的，你也可以反过来做实验。 
+
+每次训练网络模型时，都以不同的方式初始化，最后的权重也收敛到不同的值。多次重复这个过程生成多个网络模型，然后集成这些模型的预测结果。 它们的预测结果会高度相关，但对于比较难预测的样本也许会有一点提升。 
+
+相关阅读：
+
+- [用scikit-learn集成机器学习算法](http://machinelearningmastery.com/ensemble-machine-learning-algorithms-python-scikit-learn/)
+
+- [如何提升机器学习的效果](http://machinelearningmastery.com/how-to-improve-machine-learning-results/)
+
+#### 2） 视角融合
+
+如上一节提到的，以不同的角度来训练模型，或是重新刻画问题。 我们的目的还是得到有用的模型，但是方式不同（如不相关的预测结果）。 
+
+你可以根据上文中提到的方法，对训练数据采取完全不同的缩放和变换技巧。 所选用的变化方式和问题的刻画角度差异越大，效果提升的可能性也越大。 简单地对预测结果取均值是一个不错的方式。
+
+#### 3）stacking
+
+你还可以学习如何将各个模型的预测结果相融合。 这被称作是stacked泛化，或者简称为stacking。 
+
+通常，可以用简单的线性回归的方式学习各个模型预测值的权重。 把各个模型预测结果取均值的方法作为baseline，用带权重的融合作为实验组。
+
+相关阅读：
+
+- [Stacked Generalization (Stacking)](http://machine-learning.martinsewell.com/ensembles/stacking/)
+
+
+
+**补充资料:**
+
+- [神经网络常见问答](ftp://ftp.sas.com/pub/neural/FAQ.html)
+- [如何用网格搜索法求解深度学习模型的超参数](http://machinelearningmastery.com/grid-search-hyperparameters-deep-learning-models-python-keras/)
+- [深度神经网络必知的技巧](http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html)
+- [如何提升深度神经网络的验证准确率？](http://stackoverflow.com/questions/37020754/how-to-increase-validation-accuracy-with-deep-neural-net)
+
 
