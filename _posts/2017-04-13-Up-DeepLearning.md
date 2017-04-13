@@ -6,7 +6,7 @@ comments: true
 ---
 
 
-## 提升算法性能
+## 提升算法性能的方式
 
 - 从数据上提升性能
 - 从算法上提升性能
@@ -29,6 +29,7 @@ comments: true
 #### 1）收集更多的数据
 
 你还能收集到更多的训练数据吗？ 
+
 你的模型的质量往往取决于你的训练数据的质量。你需要确保使用的数据是针对问题最有效的数据。 
 
 你还希望数据尽可能多。 
@@ -69,6 +70,7 @@ comments: true
 输入、输出数据都经过同样的变换。比如，如果在输出层有一个sigmoid函数将输出值转换为二值数据，则将输出的y归一化为二进制。如果选用的是softmax函数，对y进行归一化还是有效的。 
 
 我还建议你将训练数据扩展生成多个不同的版本：
+
 - 归一化到0 ~ 1
 - 归一化到-1 ~ 1
 - 标准化
@@ -90,7 +92,9 @@ comments: true
 #### 4） 对数据做变换
 
 与上一节的方法相关，但是需要更多的工作量。 
+
 你必须真正了解所用到的数据。数据可视化，然后挑出异常值。 
+
 先猜测每一列数据的分布
 
 - 这一列数据是不是倾斜的高斯分布，若是如此，尝试用Box-Cox方法纠正倾斜
@@ -101,11 +105,8 @@ comments: true
 凭你的直觉，尝试几种方法
 
 - 是否可以用投影的方法对数据预处理，比如PCA？
-
 - 是否可以将多个属性合并为单个值？
-
 - 是否可以发掘某个新的属性，用布尔值表示？
-
 - 是否可以在时间尺度或是其它维度上有些新发现？
 
 
@@ -116,11 +117,12 @@ comments: true
 在训练集上快速尝试各种变换方法，看看哪些方法有些，而哪些不起作用。 
 
 
-
 相关阅读：
 
 [如何定义你的机器学习问题](http://machinelearningmastery.com/how-to-define-your-machine-learning-problem/)
+
 [特征挖掘工程，如何构造特征以及如何提升](http://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/)
+
 [如何用Scikit-Learn准备机器学习的输入数据](http://machinelearningmastery.com/prepare-data-machine-learning-python-scikit-learn/)
 
 
@@ -128,10 +130,15 @@ comments: true
 
 
 神经网络受不相关数据的影响很小。 
+
 它们会对此赋予一个趋近于0的权重，几乎忽略此特征对预测值的贡献。 
+
 你是否可以移除训练数据的某些属性呢？ 
+
 我们有许多的特征选择方法和特征重要性方法来鉴别哪些特征可以保留，哪些特征需要移除。 
+
 动手试一试，试一试所有的方法。 
+
 如果你的时间充裕，我还是建议在相同的神经网络模型上选择尝试多个方法，看看它们的效果分别如何。
 
 - 也许用更少的特征也能得到同样的、甚至更好的效果。
@@ -142,6 +149,7 @@ comments: true
 相关阅读：
 
 [特征选择入门介绍](http://machinelearningmastery.com/an-introduction-to-feature-selection/)
+
 [基于Python的机器学习中的特征选择问题](http://machinelearningmastery.com/feature-selection-machine-learning-python/)
 
 
@@ -160,11 +168,8 @@ comments: true
 
 
 - 也许你可以将时间元素融入到一个窗口之中
-
 - 也许你的分类问题可以转化为回归问题，反之亦然
-
 - 也许可以把二值类型的输出转化为softmax的输出
-
 - 也许你可以对子问题建模
 
 
