@@ -1,3 +1,11 @@
+---
+layout: post
+title: 深度学习性能提升的诀窍
+category: 深度学习
+comments: true
+---
+
+
 ## 提升算法性能
 
 - 从数据上提升性能
